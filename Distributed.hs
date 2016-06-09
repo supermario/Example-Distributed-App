@@ -84,7 +84,7 @@ spawnServer :: Process ProcessId
 spawnServer = spawnLocal $ do
     myPid <- getSelfPid
     otherPids <- expect
-    spawnLocal $ forever $ do 
+    spawnLocal $ forever $ do
         liftIO $ threadDelay (10^6)
         send myPid Tick
     randomGen <- liftIO newStdGen
